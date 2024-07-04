@@ -20,9 +20,14 @@ const AddPackageForm: React.FC<AddPackageFormProps> = ({ open, handleClose }) =>
         const { name, value } = e.target;
         setNewPackage(prevState => ({
             ...prevState,
-            [name]: name === 'latitude' || name === 'longitude' ? parseFloat(value) : value,
+            [name]: name === 'latitude' || name === 'longitude'
+                ? parseFloat(value) // המרה למספר עבור שדות latitude ו-longitude
+                : name === 'collected'
+                ? e.target.checked // שימוש במאפיין checked עבור שדות בוליאניים
+                : value, // שמירה על הערך כפי שהוא עבור כל שדה אחר
         }));
     };
+    
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
