@@ -2,9 +2,9 @@ import './App.css'
 import { observer } from 'mobx-react-lite'
 import { useEffect } from 'react'
 import { packageStore } from './stores/packageStore'
-import Bar from './components/Bar'
 import PackagesList from './components/packagesList'
 import React from 'react'
+import ParentSearch from './components/ParentSearch'
 
 
 const App: React.FC = observer(() => {
@@ -17,7 +17,7 @@ const App: React.FC = observer(() => {
   }, [])
   return (
     <div>
-      <Bar />
+      <ParentSearch />
       <PackagesList />
     </div>
   )
